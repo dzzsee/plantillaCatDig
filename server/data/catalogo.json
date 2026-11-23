@@ -1,0 +1,78 @@
+{
+  "productos": [
+    {
+      "id": "demo-1",
+      "nombre": "Analizador de química clínica",
+      "descripcion": "Equipo semiautomático para determinaciones de química clínica, con lectura fotométrica y resultados en pantalla. Consulta por configuración y reactivos disponibles.",
+      "categoriaId": "cat-analizadores",
+      "precioMin": 4500,
+      "precioMax": 6200,
+      "imagenes": [
+        "/uploads/ejemplo-analizador.svg",
+        "/uploads/ejemplo-analizador-detalle.svg",
+        "/uploads/ejemplo-analizador-lateral.svg"
+      ],
+      "activo": true,
+      "orden": 1,
+      "creadoEn": "2026-01-01T00:00:00.000Z",
+      "actualizadoEn": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "demo-2",
+      "nombre": "Microscopio binocular de laboratorio",
+      "descripcion": "Microscopio binocular con iluminación LED, platina mecánica y objetivos de 4x, 10x, 40x y 100x. Incluye estuche y manual de uso.",
+      "categoriaId": "cat-microscopia",
+      "precioMin": 1200,
+      "precioMax": 1800,
+      "imagenes": [
+        "/uploads/ejemplo-microscopio.svg",
+        "/uploads/ejemplo-microscopio-objetivos.svg",
+        "/uploads/ejemplo-microscopio-lateral.svg"
+      ],
+      "activo": true,
+      "orden": 2,
+      "creadoEn": "2026-01-01T00:00:00.000Z",
+      "actualizadoEn": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "demo-3",
+      "nombre": "Centrífuga de mesa",
+      "descripcion": "Centrífuga de baja velocidad para tubos de 10 y 15 ml, con control de tiempo y velocidad. Indicada para laboratorios clínicos de pequeño y mediano volumen.",
+      "categoriaId": "cat-centrifugado",
+      "precioMin": 850,
+      "precioMax": 1300,
+      "imagenes": [
+        "/uploads/ejemplo-centrifuga.svg",
+        "/uploads/ejemplo-centrifuga-rotor.svg",
+        "/uploads/ejemplo-centrifuga-panel.svg"
+      ],
+      "activo": true,
+      "orden": 3,
+      "creadoEn": "2026-01-01T00:00:00.000Z",
+      "actualizadoEn": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "demo-4",
+      "nombre": "Set de micropipetas ajustables",
+      "descripcion": "Conjunto de micropipetas de volumen variable con punta desechable. Disponibles en distintos rangos; consulta por modelo y cantidad.",
+      "categoriaId": "cat-insumos",
+      "precioMin": 90,
+      "precioMax": 180,
+      "imagenes": [
+        "/uploads/ejemplo-pipetas.svg",
+        "/uploads/ejemplo-pipetas-detalle.svg",
+        "/uploads/ejemplo-pipetas-set.svg"
+      ],
+      "activo": true,
+      "orden": 4,
+      "creadoEn": "2026-01-01T00:00:00.000Z",
+      "actualizadoEn": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "categorias": [
+    { "id": "cat-analizadores", "nombre": "Analizadores", "orden": 1 },
+    { "id": "cat-microscopia", "nombre": "Microscopía", "orden": 2 },
+    { "id": "cat-centrifugado", "nombre": "Centrifugado", "orden": 3 },
+    { "id": "cat-insumos", "nombre": "Insumos y consumibles", "orden": 4 }
+  ]
+}

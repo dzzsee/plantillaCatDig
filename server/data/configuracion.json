@@ -1,0 +1,14 @@
+{
+  "nombreNegocio": "Dilamed",
+  "eslogan": "Equipos e insumos para laboratorio clínico",
+  "logo": "/logo.jpg",
+  "whatsapp": "5215555555555",
+  "mensajeWhatsApp": "Hola, quisiera consultar por *{producto}*. ¿Podrían enviarme más información y disponibilidad?",
+  "moneda": { "simbolo": "$", "codigo": "USD", "posicion": "antes" },
+  "colores": {
+    "primario": "#4a2e50",
+    "acento": "#9bc2d6",
+    "fondo": "#f2f8fc",
+    "texto": "#3b2540"
+  }
+}
