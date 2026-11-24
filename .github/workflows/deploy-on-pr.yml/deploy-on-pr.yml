@@ -1,0 +1,58 @@
+name: Deploy en PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Verificar build y lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci --no-audit --no-fund
+
+      - run: npm run build
+
+      - run: npm run lint
+
+  deployar:
+    name: Deploy en el servidor de Oracle Cloud
+    needs: verificar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Copiar el proyecto al servidor
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.OCI_HOST }}
+          username: ${{ secrets.OCI_USER }}
+          key: ${{ secrets.OCI_KEY }}
+          target: ${{ secrets.OCI_PATH || '/home/ubuntu/pettag' }}
+          source: "./"
+
+      - name: Reiniciar la app en el servidor
+        uses: appleboy/ssh-action@v1.2.5
+        with:
+          host: ${{ secrets.OCI_HOST }}
+          username: ${{ secrets.OCI_USER }}
+          key: ${{ secrets.OCI_KEY }}
+          script: |
+            OCI_PATH='${{ secrets.OCI_PATH || "/home/ubuntu/pettag" }}'
+            cd "$OCI_PATH"
+            (docker restart infra-app-1 2>/dev/null || pkill -f "[n]ext-server") || true
+            sleep 3
+            curl -fsS -o /dev/null -w "HTTP %{http_code}\n" "https://pettag.astranode.live/" || echo "No se pudo verificar el estado del sitio."
+
+      - name: Notificar
+        run: echo "Deploy del PR #${{ github.event.number }} sincronizado en el servidor de Oracle Cloud."
